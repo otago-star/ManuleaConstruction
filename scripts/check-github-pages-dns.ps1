@@ -26,7 +26,20 @@ function Get-Records {
   )
 
   try {
-    Resolve-DnsName -Name $Name -Type $Type | Select-Object -ExpandProperty IPAddress -ErrorAction Stop
+    $dnsType = switch ($Type.ToUpperInvariant()) {
+      "A" { 1 }
+      "AAAA" { 28 }
+      default { throw "Unsupported record type: $Type" }
+    }
+
+    $url = "https://dns.google/resolve?name=$Name&type=$dnsType"
+    $response = Invoke-RestMethod -Uri $url -Method Get -ErrorAction Stop
+
+    if ($null -eq $response.Answer) {
+      return @()
+    }
+
+    ($response.Answer | Where-Object { $_.type -eq $dnsType } | Select-Object -ExpandProperty data)
   }
   catch {
     @()
@@ -37,14 +50,43 @@ function Get-Cname {
   param([string]$Name)
 
   try {
-    $record = Resolve-DnsName -Name $Name -Type CNAME -ErrorAction Stop | Select-Object -First 1
-    if ($null -ne $record -and $record.NameHost) {
-      return $record.NameHost.TrimEnd('.')
+    $url = "https://dns.google/resolve?name=$Name&type=5"
+    $response = Invoke-RestMethod -Uri $url -Method Get -ErrorAction Stop
+
+    if ($null -eq $response.Answer) {
+      return ""
     }
+
+    $record = $response.Answer | Where-Object { $_.type -eq 5 } | Select-Object -First 1
+    if ($null -ne $record -and $record.data) {
+      return $record.data.TrimEnd('.')
+    }
+
     return ""
   }
   catch {
     return ""
+  }
+}
+
+function Test-HttpsCertificate {
+  param([string]$HostName)
+
+  try {
+    Invoke-WebRequest -Uri ("https://" + $HostName) -UseBasicParsing -MaximumRedirection 0 -ErrorAction Stop | Out-Null
+    return [PSCustomObject]@{
+      IsTrusted = $true
+      Message = "Trusted TLS certificate and HTTPS response detected."
+    }
+  }
+  catch {
+    $message = $_.Exception.Message
+    $isTrustError = ($message -match "trust relationship|SSL/TLS secure channel|principal name is incorrect")
+
+    [PSCustomObject]@{
+      IsTrusted = (-not $isTrustError)
+      Message = $message
+    }
   }
 }
 
@@ -78,12 +120,15 @@ $aResult = Compare-Set -Actual $apexA -Expected $expectedA
 $aaaaResult = Compare-Set -Actual $apexAAAA -Expected $expectedAAAA
 $wwwOk = ($wwwCname -eq $ExpectedWwwCname)
 
-$cnameFilePath = Join-Path (Get-Location) "CNAME"
+$repoRoot = Split-Path -Parent $PSScriptRoot
+$cnameFilePath = Join-Path $repoRoot "CNAME"
 $cnameFileValue = ""
 if (Test-Path $cnameFilePath) {
   $cnameFileValue = (Get-Content $cnameFilePath -Raw).Trim()
 }
 $cnameFileOk = ($cnameFileValue -eq $Domain)
+
+$httpsState = Test-HttpsCertificate -HostName $Domain
 
 Write-Host "A records (@):" -ForegroundColor Yellow
 $apexA | ForEach-Object { Write-Host "  $_" }
@@ -125,7 +170,19 @@ if (-not $cnameFileOk) {
 }
 Write-Host ""
 
-$allGood = $aResult.IsMatch -and $aaaaResult.IsMatch -and $wwwOk -and $cnameFileOk
+Write-Host "HTTPS certificate status:" -ForegroundColor Yellow
+Write-Host "  $($httpsState.Message)"
+if (-not $httpsState.IsTrusted) {
+  Write-Host "  HTTPS certificate is not trusted yet (likely pending GitHub cert issuance)." -ForegroundColor Red
+}
+Write-Host ""
+
+$allGood = $aResult.IsMatch -and $wwwOk -and $cnameFileOk -and $httpsState.IsTrusted
+
+if (-not $aaaaResult.IsMatch -and $apexAAAA.Count -eq 0) {
+  Write-Host "Note: AAAA records are optional for GitHub Pages. Add them for full IPv6 support." -ForegroundColor DarkYellow
+  Write-Host ""
+}
 
 if ($allGood) {
   Write-Host "PASS: DNS records and CNAME file match GitHub Pages requirements." -ForegroundColor Green

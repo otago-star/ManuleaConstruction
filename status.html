@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Live Status | Manulea Construction</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="bg-shape bg-shape-1"></div>
+  <div class="bg-shape bg-shape-2"></div>
+  <img class="side-border side-border-left" src="images/border/border.png" alt="" aria-hidden="true" />
+  <img class="side-border side-border-right" src="images/border/border.png" alt="" aria-hidden="true" />
+
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="index.html">
+        <img src="images/logo/logo.png" alt="Manulea Construction banner logo" class="brand-logo" />
+      </a>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="services.html">What We Do</a>
+        <a href="process.html">The Process</a>
+      </nav>
+      <a class="nav-cta" href="mailto:manuleacon@gmail.com?subject=Renovation%20and%20Repair%20Inquiry">Email Us</a>
+    </div>
+  </header>
+
+  <main class="container status-page" id="live-status-dashboard">
+    <section class="status-intro card">
+      <h1>Live Domain Status</h1>
+      <p>This page checks whether the public site is reachable over HTTPS and whether DNS is pointing to GitHub Pages correctly.</p>
+      <p class="status-meta">Target: <strong id="status-target">https://manuleaconstruction.co.nz</strong></p>
+      <button class="btn btn-primary" type="button" id="run-status-check">Run Checks Again</button>
+      <p class="status-meta" id="last-status-run">Last check: not started</p>
+    </section>
+
+    <section class="status-grid">
+      <article class="status-card card" id="status-https">
+        <h2>HTTPS Reachability</h2>
+        <p class="status-pill pending">Pending</p>
+        <p class="status-details">Checks if the browser can load the live homepage over TLS.</p>
+      </article>
+
+      <article class="status-card card" id="status-asset">
+        <h2>Live Asset Load</h2>
+        <p class="status-pill pending">Pending</p>
+        <p class="status-details">Loads a known image from the live site to confirm routing and static content delivery.</p>
+      </article>
+
+      <article class="status-card card" id="status-apex-a">
+        <h2>Root A Records</h2>
+        <p class="status-pill pending">Pending</p>
+        <p class="status-details">Validates the root domain resolves to GitHub Pages IPv4 addresses.</p>
+      </article>
+
+      <article class="status-card card" id="status-www-cname">
+        <h2>WWW CNAME</h2>
+        <p class="status-pill pending">Pending</p>
+        <p class="status-details">Checks that www points to otago-star.github.io.</p>
+      </article>
+    </section>
+
+    <section class="card status-log-wrap">
+      <h2>Check Log</h2>
+      <pre id="status-log" class="status-log">Waiting for first run...</pre>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p class="theme-badge" id="theme-badge">Theme: loading...</p>
+      <p>© <span id="year"></span> Manulea Construction. Internal diagnostics page.</p>
+      <p class="site-footer-name">Sione Laiva'a Manulea Jnr</p>
+    </div>
+  </footer>
+
+  <script src="status.js" defer></script>
+  <script src="script.js" defer></script>
+</body>
+</html>

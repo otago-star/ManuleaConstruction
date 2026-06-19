@@ -70,3 +70,16 @@ The script checks:
 - Apex AAAA records
 - `www` CNAME target
 - Root `CNAME` file value
+
+### Wait Until HTTPS Is Ready
+
+If GitHub has not issued the certificate yet, run the watcher:
+
+- `powershell.exe -ExecutionPolicy Bypass -File .\scripts\wait-for-https-ready.ps1`
+
+Optional parameters:
+
+- `-IntervalSeconds 180`
+- `-MaxChecks 120`
+
+The watcher repeats the DNS and certificate check until it passes or times out.
