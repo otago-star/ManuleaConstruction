@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://otago-star.github.io/ManuleaConstruction/sitemap.xml
+Sitemap: https://manuleaconstruction.co.nz/sitemap.xml
