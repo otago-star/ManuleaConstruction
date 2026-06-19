@@ -617,7 +617,7 @@ h1 {
 }
 
 #projects {
-  scroll-margin-top: 230px;
+  scroll-margin-top: 270px;
 }
 
 .before-after {
@@ -815,18 +815,25 @@ h1 {
   z-index: 120;
 }
 
-.site-footer .container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.28rem;
-}
+@media (max-width: 640px) {
+  .site-footer {
+    padding: 0.3rem 0 0.4rem;
+    font-size: 0.65rem;
+  }
 
-.theme-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.35rem;
-  padding: 0.24rem 0.55rem;
+  .theme-badge {
+    padding: 0.14rem 0.38rem;
+    font-size: 0.6rem;
+  }
+
+  .site-footer-name {
+    font-size: 0.65rem;
+  }
+
+  .site-footer .container {
+    gap: 0.14rem;
+  }
+}
   border-radius: 999px;
   border: 1px solid rgba(230, 178, 186, 0.42);
   background: rgba(62, 34, 42, 0.72);
@@ -1055,6 +1062,10 @@ body.holiday-halloween {
 }
 
 @media (max-width: 920px) {
+  body {
+    padding-top: 260px;
+  }
+
   .nav-wrap {
     flex-direction: column;
     justify-content: center;
@@ -1070,11 +1081,12 @@ body.holiday-halloween {
 
   .nav-links {
     justify-content: center;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
+    gap: 0.35rem;
     max-width: 92vw;
-    overflow-x: auto;
-    overflow-y: hidden;
-    white-space: nowrap;
+    overflow-x: visible;
+    overflow-y: visible;
+    white-space: normal;
   }
 
   .side-border {
@@ -1125,14 +1137,13 @@ body.holiday-halloween {
 @media (max-width: 640px) {
   .nav-links {
     justify-content: center;
-    flex-wrap: nowrap;
-    gap: 0.35rem;
+    flex-wrap: wrap;
+    gap: 0.3rem;
     max-width: 92vw;
-    overflow-x: auto;
-    overflow-y: hidden;
-    white-space: nowrap;
+    overflow-x: visible;
+    overflow-y: visible;
+    white-space: normal;
     padding-bottom: 2px;
-    scrollbar-width: thin;
   }
 
   .brand {
@@ -1143,8 +1154,12 @@ body.holiday-halloween {
   }
 
   .nav-links a {
-    padding: 0.22rem 0.48rem;
-    font-size: 0.76rem;
+    padding: 0.18rem 0.5rem;
+    font-size: 0.72rem;
+  }
+
+  .nav-cta {
+    display: none;
   }
 
   .before-after-pair {
@@ -1171,12 +1186,8 @@ body.holiday-halloween {
     justify-content: center;
     text-align: center;
     flex-wrap: wrap;
-    gap: 0.45rem;
-    padding: 0.3rem 0;
-  }
-
-  .nav-cta {
-    display: none;
+    gap: 0.3rem;
+    padding: 0.25rem 0;
   }
 
   .hero {
@@ -1218,6 +1229,25 @@ body.holiday-halloween {
 
   body {
     padding-top: 182px;
-    padding-bottom: 126px;
+    padding-bottom: 92px;
+  }
+
+  .site-footer {
+    padding: 0.28rem 0 0.36rem;
+    font-size: 0.64rem;
+  }
+
+  .theme-badge {
+    padding: 0.13rem 0.36rem;
+    font-size: 0.59rem;
+    letter-spacing: 0;
+  }
+
+  .site-footer-name {
+    font-size: 0.64rem;
+  }
+
+  .site-footer .container {
+    gap: 0.12rem;
   }
 }
