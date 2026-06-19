@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://otago-star.github.io/ManuleaConstruction/</loc>
+    <image:image>
+      <image:loc>https://otago-star.github.io/ManuleaConstruction/images/logo/logo.png</image:loc>
+      <image:title>Manulea Construction Logo</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://otago-star.github.io/ManuleaConstruction/images/projects/project1/1.jpg</image:loc>
+      <image:title>Renovation Gallery Before Image</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://otago-star.github.io/ManuleaConstruction/images/projects/project1/21.jpg</image:loc>
+      <image:title>Renovation Gallery After Image</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://otago-star.github.io/ManuleaConstruction/images/projects/project2/1.jpg</image:loc>
+      <image:title>Building Repair Before Image</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://otago-star.github.io/ManuleaConstruction/images/projects/project2/6.jpg</image:loc>
+      <image:title>Building Repair After Image</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://otago-star.github.io/ManuleaConstruction/images/projects/project3/1.jpg</image:loc>
+      <image:title>Project 3 Before Image</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://otago-star.github.io/ManuleaConstruction/images/projects/project3/4.jpg</image:loc>
+      <image:title>Project 3 After Image</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://otago-star.github.io/ManuleaConstruction/about.html</loc>
+  </url>
+  <url>
+    <loc>https://otago-star.github.io/ManuleaConstruction/services.html</loc>
+  </url>
+  <url>
+    <loc>https://otago-star.github.io/ManuleaConstruction/process.html</loc>
+  </url>
+</urlset>
