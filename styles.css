@@ -122,7 +122,7 @@ body > * {
   pointer-events: none;
   z-index: 3;
   opacity: 0.9;
-  filter: drop-shadow(0 0 10px rgba(170, 36, 36, 0.55));
+  filter: brightness(0) saturate(100%) invert(14%) sepia(95%) saturate(6470%) hue-rotate(351deg) brightness(88%) contrast(118%) drop-shadow(0 0 10px rgba(170, 36, 36, 0.55));
 }
 
 .side-border-left {
