@@ -300,11 +300,20 @@ body > * {
 }
 
 .review-item {
-  background: linear-gradient(145deg, #fff8f8 0%, #f8e6e6 100%);
-  border: 2px solid var(--brand);
+  background: linear-gradient(145deg, rgba(176, 28, 44, 0.95) 0%, rgba(132, 18, 30, 0.98) 100%);
+  border: 2px solid rgba(255, 164, 178, 0.58);
   border-radius: 16px;
   padding: 1.8rem;
   box-shadow: var(--shadow);
+}
+
+.review-item .review-quote,
+.review-item .review-quote cite {
+  color: #ffccd6;
+}
+
+.reviews h2 {
+  color: #ff6b80;
 }
 
 .review-rating {
@@ -397,7 +406,7 @@ body > * {
   background: transparent;
   box-shadow: none;
   display: block;
-  filter: drop-shadow(0 2px 8px rgba(5, 12, 24, 0.45));
+  filter: brightness(0) saturate(100%) invert(14%) sepia(95%) saturate(6470%) hue-rotate(351deg) brightness(88%) contrast(118%) drop-shadow(0 2px 8px rgba(5, 12, 24, 0.45));
 }
 
 .logo-showcase {
