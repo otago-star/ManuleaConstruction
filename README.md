@@ -40,4 +40,13 @@ On the home page:
 
 ## Local Preview
 
-Open `index.html` directly in a browser, or run any simple static file server from the project root.
+This project is configured to run locally over HTTPS using Vite.
+
+1. Install dependencies:
+	- `npm install`
+2. Start the HTTPS dev server:
+	- `npm run dev`
+3. Open:
+	- `https://localhost:5173/`
+
+Vite uses `@vitejs/plugin-basic-ssl` to generate a local development certificate automatically.
