@@ -136,30 +136,42 @@ body > * {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.8rem 0;
+  flex-wrap: wrap;
+  padding: 0.45rem 0;
   gap: 1rem;
+}
+
+.nav-links {
+  display: flex;
+  gap: 0.8rem;
+  align-items: center;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--ink);
+  font-weight: 600;
+  background: rgba(255, 255, 255, 0.48);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 0.35rem 0.7rem;
 }
 
 .brand {
   display: inline-flex;
   align-items: center;
   flex-direction: row;
-  gap: 0.75rem;
+  gap: 0;
   text-decoration: none;
   color: var(--ink);
-  font-family: "Audiowide", "Orbitron", sans-serif;
-  letter-spacing: 1.1px;
-  font-size: clamp(1.8rem, 4.2vw, 3.6rem);
-  line-height: 1;
-  white-space: nowrap;
 }
 
 .brand-logo {
-  width: auto;
-  height: clamp(42px, 6vw, 78px);
-  max-width: min(42vw, 260px);
-  max-height: 78px;
-  object-fit: initial;
+  width: min(820px, 72vw);
+  height: auto;
+  max-width: 100%;
+  max-height: 145px;
+  object-fit: contain;
   border-radius: 0;
   border: none;
   background: transparent;
@@ -360,6 +372,53 @@ h1 {
   padding: 0.4rem 0 3rem;
 }
 
+.before-after {
+  padding: 1rem 0 2rem;
+}
+
+.before-after h2 {
+  font-family: "Orbitron", sans-serif;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.before-after-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.before-after-card {
+  background: linear-gradient(145deg, #fff9f9 0%, #f8eaea 100%);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 1rem;
+  box-shadow: var(--shadow);
+}
+
+.before-after-card h3 {
+  text-align: center;
+  margin: 0 0 0.6rem;
+  font-family: "Orbitron", sans-serif;
+}
+
+.before-after-pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.7rem;
+}
+
+.before-after-pair figure {
+  margin: 0;
+}
+
+.before-after-pair figcaption {
+  text-align: center;
+  font-size: 0.88rem;
+  font-weight: 700;
+  margin-top: 0.4rem;
+}
+
 .projects-copy {
   text-align: center;
   max-width: 66ch;
@@ -370,7 +429,25 @@ h1 {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1rem;
-  perspective: 1200px;
+}
+
+.project-album {
+  margin-bottom: 1.5rem;
+}
+
+.project-album.is-hidden {
+  display: none;
+}
+
+.project-album h3 {
+  text-align: center;
+  margin: 0.25rem 0 0.8rem;
+  font-family: "Orbitron", sans-serif;
+}
+
+.load-more-wrap {
+  text-align: center;
+  margin-top: 0.4rem;
 }
 
 .project-shot {
@@ -380,13 +457,14 @@ h1 {
   border-radius: 16px;
   border: 1px solid var(--line);
   box-shadow: var(--shadow);
-  transform: translate3d(0, 0, 0) scale(1.04);
-  transition: transform 0.25s linear, box-shadow 0.25s ease;
-  will-change: transform;
+  filter: saturate(0.94) contrast(1.03);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, filter 0.25s ease;
 }
 
 .project-shot:hover {
+  transform: translateY(-4px) scale(1.01);
   box-shadow: 0 24px 40px rgba(118, 20, 20, 0.32);
+  filter: saturate(1.08) contrast(1.05);
 }
 
 .process .card {
@@ -431,7 +509,7 @@ h1 {
 }
 
 .email-display {
-  margin-top: 1rem;
+  margin-top: 0.45rem;
 }
 
 .email-display a {
@@ -547,6 +625,14 @@ h1 {
     width: 38px;
   }
 
+  .before-after-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .before-after-pair {
+    grid-template-columns: 1fr 1fr;
+  }
+
   .service-grid {
     grid-template-columns: 1fr 1fr;
   }
@@ -565,9 +651,23 @@ h1 {
 }
 
 @media (max-width: 640px) {
+  .nav-links {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .brand {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .before-after-pair {
+    grid-template-columns: 1fr;
+  }
+
   .brand-logo {
-    height: clamp(40px, 10vw, 56px);
-    max-width: 62vw;
+    width: min(96vw, 680px);
+    max-height: 120px;
   }
 
   .showcase-logo {

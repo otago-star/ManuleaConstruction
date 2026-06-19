@@ -29,47 +29,35 @@ if (form) {
   });
 }
 
-const projectShots = Array.from(document.querySelectorAll(".project-shot"));
+const loadMoreButton = document.getElementById("load-more-galleries");
 
-if (projectShots.length && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-  let pointerX = window.innerWidth / 2;
-  let pointerY = window.innerHeight / 2;
-  let frameId = null;
+if (loadMoreButton) {
+  const hiddenAlbums = Array.from(document.querySelectorAll(".project-album.is-hidden"));
+  let nextIndex = 0;
 
-  const renderParallax = () => {
-    frameId = null;
+  const revealNextGallery = () => {
+    const album = hiddenAlbums[nextIndex];
 
-    const xNorm = (pointerX / Math.max(window.innerWidth, 1) - 0.5) * 2;
-    const yNorm = (pointerY / Math.max(window.innerHeight, 1) - 0.5) * 2;
-    const scrollNorm = window.scrollY * 0.03;
-
-    projectShots.forEach((shot, index) => {
-      const direction = index % 2 === 0 ? 1 : -1;
-      const depth = 14 + (index % 3) * 6;
-      const shiftX = xNorm * depth * direction;
-      const shiftY = yNorm * depth + Math.sin(scrollNorm + index) * 22 * direction;
-      const rotate = xNorm * 4 * direction + yNorm * 2;
-
-      shot.style.transform = `translate3d(${shiftX}px, ${shiftY}px, 0) scale(1.08) rotateZ(${rotate}deg)`;
-    });
-  };
-
-  const queueParallax = () => {
-    if (frameId !== null) {
+    if (!album) {
+      loadMoreButton.style.display = "none";
       return;
     }
 
-    frameId = window.requestAnimationFrame(renderParallax);
+    album.classList.remove("is-hidden");
+    nextIndex += 1;
+
+    if (nextIndex === 1) {
+      loadMoreButton.textContent = "Load More Images";
+    }
+
+    if (nextIndex >= hiddenAlbums.length) {
+      loadMoreButton.style.display = "none";
+    }
   };
 
-  window.addEventListener("pointermove", (event) => {
-    pointerX = event.clientX;
-    pointerY = event.clientY;
-    queueParallax();
-  });
+  loadMoreButton.addEventListener("click", revealNextGallery);
 
-  window.addEventListener("scroll", queueParallax, { passive: true });
-  window.addEventListener("resize", queueParallax);
-
-  queueParallax();
+  if (!hiddenAlbums.length) {
+    loadMoreButton.style.display = "none";
+  }
 }
