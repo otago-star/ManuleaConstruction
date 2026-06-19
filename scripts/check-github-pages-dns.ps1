@@ -1,5 +1,6 @@
 param(
   [string]$Domain = "manuleaconstruction.co.nz",
+  [string]$CustomDomain = "www.manuleaconstruction.co.nz",
   [string]$ExpectedWwwCname = "otago-star.github.io"
 )
 
@@ -126,9 +127,9 @@ $cnameFileValue = ""
 if (Test-Path $cnameFilePath) {
   $cnameFileValue = (Get-Content $cnameFilePath -Raw).Trim()
 }
-$cnameFileOk = ($cnameFileValue -eq $Domain)
+$cnameFileOk = ($cnameFileValue -eq $CustomDomain)
 
-$httpsState = Test-HttpsCertificate -HostName $Domain
+$httpsState = Test-HttpsCertificate -HostName $CustomDomain
 
 Write-Host "A records (@):" -ForegroundColor Yellow
 $apexA | ForEach-Object { Write-Host "  $_" }
@@ -164,7 +165,7 @@ Write-Host ""
 
 Write-Host "CNAME file in repo root:" -ForegroundColor Yellow
 Write-Host "  Actual:   $cnameFileValue"
-Write-Host "  Expected: $Domain"
+Write-Host "  Expected: $CustomDomain"
 if (-not $cnameFileOk) {
   Write-Host "  CNAME file value does not match domain." -ForegroundColor Red
 }

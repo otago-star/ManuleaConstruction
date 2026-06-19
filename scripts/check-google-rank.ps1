@@ -2,7 +2,7 @@ param(
   [Parameter(Mandatory = $true)]
   [string]$Keyword,
 
-  [string]$Domain = "manuleaconstruction.co.nz",
+  [string]$Domain = "www.manuleaconstruction.co.nz",
   [string]$Gl = "nz",
   [string]$Hl = "en",
   [int]$MaxResults = 100

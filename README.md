@@ -62,6 +62,7 @@ To verify your custom domain DNS is ready for the GitHub Pages **Enforce HTTPS**
 Optional parameters:
 
 - `-Domain "manuleaconstruction.co.nz"`
+- `-CustomDomain "www.manuleaconstruction.co.nz"`
 - `-ExpectedWwwCname "otago-star.github.io"`
 
 The script checks:
@@ -92,7 +93,7 @@ Use this script to check your Google ranking position for a target keyword.
 2. Set your API key in PowerShell:
 	- `$env:SERPAPI_API_KEY = "your_api_key_here"`
 3. Run the script:
-	- `powershell.exe -ExecutionPolicy Bypass -File .\scripts\check-google-rank.ps1 -Keyword "renovations dunedin" -Domain "manuleaconstruction.co.nz"`
+	- `powershell.exe -ExecutionPolicy Bypass -File .\scripts\check-google-rank.ps1 -Keyword "renovations dunedin" -Domain "www.manuleaconstruction.co.nz"`
 
 Optional parameters:
 

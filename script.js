@@ -1,6 +1,22 @@
 const form = document.getElementById("quote-form");
 const yearEl = document.getElementById("year");
 
+function enforceCanonicalHost() {
+  const currentHost = window.location.hostname;
+
+  // Keep local development hosts untouched.
+  if (currentHost === "localhost" || currentHost === "127.0.0.1") {
+    return;
+  }
+
+  if (currentHost === "manuleaconstruction.co.nz") {
+    const target = `https://www.manuleaconstruction.co.nz${window.location.pathname}${window.location.search}${window.location.hash}`;
+    window.location.replace(target);
+  }
+}
+
+enforceCanonicalHost();
+
 function getHemisphereFromTimezone(timezone) {
   const southernHints = ["Pacific/Auckland", "Pacific/Chatham", "Australia/", "Antarctica/"];
   return southernHints.some((hint) => timezone.startsWith(hint)) ? "southern" : "northern";

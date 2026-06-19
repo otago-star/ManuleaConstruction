@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://manuleaconstruction.co.nz/sitemap.xml
+Sitemap: https://www.manuleaconstruction.co.nz/sitemap.xml

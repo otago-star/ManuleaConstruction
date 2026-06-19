@@ -1,4 +1,4 @@
-const TARGET_DOMAIN = "manuleaconstruction.co.nz";
+const TARGET_DOMAIN = "www.manuleaconstruction.co.nz";
 const EXPECTED_WWW_CNAME = "otago-star.github.io";
 const EXPECTED_APEX_A = [
   "185.199.108.153",

@@ -1,5 +1,6 @@
 param(
   [string]$Domain = "manuleaconstruction.co.nz",
+  [string]$CustomDomain = "www.manuleaconstruction.co.nz",
   [string]$ExpectedWwwCname = "otago-star.github.io",
   [int]$IntervalSeconds = 180,
   [int]$MaxChecks = 120
@@ -21,14 +22,15 @@ if (-not (Test-Path $checkerPath)) {
 }
 
 Write-Host "Waiting for GitHub Pages HTTPS readiness..." -ForegroundColor Cyan
-Write-Host "Domain: $Domain" -ForegroundColor Cyan
+Write-Host "Root Domain: $Domain" -ForegroundColor Cyan
+Write-Host "Custom Domain: $CustomDomain" -ForegroundColor Cyan
 Write-Host "Interval: $IntervalSeconds seconds | Max checks: $MaxChecks" -ForegroundColor Cyan
 Write-Host ""
 
 for ($i = 1; $i -le $MaxChecks; $i++) {
   Write-Host "Check $i of $MaxChecks" -ForegroundColor Yellow
 
-  & $checkerPath -Domain $Domain -ExpectedWwwCname $ExpectedWwwCname
+  & $checkerPath -Domain $Domain -CustomDomain $CustomDomain -ExpectedWwwCname $ExpectedWwwCname
   $exitCode = $LASTEXITCODE
 
   if ($exitCode -eq 0) {
