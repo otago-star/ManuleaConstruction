@@ -1102,13 +1102,27 @@ body.holiday-halloween {
 
 @media (max-width: 640px) {
   .nav-links {
-    justify-content: center;
-    flex-wrap: wrap;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    gap: 0.35rem;
+    max-width: 62vw;
+    overflow-x: auto;
+    overflow-y: hidden;
+    white-space: nowrap;
+    padding-bottom: 2px;
+    scrollbar-width: thin;
   }
 
   .brand {
-    width: 100%;
+    width: auto;
     justify-content: center;
+    margin: 0;
+    padding: 0.2rem 0.45rem;
+  }
+
+  .nav-links a {
+    padding: 0.22rem 0.48rem;
+    font-size: 0.76rem;
   }
 
   .before-after-pair {
@@ -1116,8 +1130,8 @@ body.holiday-halloween {
   }
 
   .brand-logo {
-    width: min(96vw, 680px);
-    max-height: 120px;
+    width: min(40vw, 240px);
+    max-height: 56px;
   }
 
   .showcase-logo {
@@ -1130,9 +1144,17 @@ body.holiday-halloween {
   }
 
   .nav-wrap {
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
-    text-align: center;
+    justify-content: center;
+    text-align: left;
+    flex-wrap: nowrap;
+    gap: 0.45rem;
+    padding: 0.3rem 0;
+  }
+
+  .nav-cta {
+    display: none;
   }
 
   .hero {
@@ -1173,7 +1195,7 @@ body.holiday-halloween {
   }
 
   body {
-    padding-top: 220px;
+    padding-top: 118px;
     padding-bottom: 126px;
   }
 }
