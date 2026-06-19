@@ -188,8 +188,17 @@ body > * {
   font-family: "Orbitron", sans-serif;
   text-align: center;
   font-size: clamp(1.65rem, 3vw, 2.7rem);
-  margin-bottom: 2rem;
+  margin-bottom: 0.75rem;
   letter-spacing: 0.8px;
+}
+
+.services-intro {
+  text-align: center;
+  max-width: 68ch;
+  margin: 0 auto 2rem;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #c9b0b8;
 }
 
 .service-highlights {
@@ -367,6 +376,16 @@ body > * {
   gap: 1rem;
 }
 
+a {
+  color: #d4b896;
+  text-decoration-color: #b8976e;
+}
+
+a:hover {
+  color: #e8cfa8;
+  text-decoration-color: #d4b896;
+}
+
 .nav-links {
   display: flex;
   gap: 0.8rem;
@@ -375,7 +394,7 @@ body > * {
 
 .nav-links a {
   text-decoration: none;
-  color: var(--ink);
+  color: #d4b896;
   font-weight: 600;
   background: var(--surface-soft);
   border: 1px solid var(--line);
@@ -410,6 +429,28 @@ body > * {
   z-index: -1;
 }
 
+.brand::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 14px;
+  pointer-events: none;
+  z-index: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent 0px,
+    transparent 3px,
+    rgba(0, 255, 70, 0.022) 3px,
+    rgba(0, 255, 70, 0.022) 4px
+  );
+  opacity: 1;
+  transition: opacity 0.4s ease;
+}
+
+.brand:hover::after {
+  opacity: 0;
+}
+
 .brand-logo {
   width: min(820px, 72vw);
   height: auto;
@@ -421,7 +462,14 @@ body > * {
   background: transparent;
   box-shadow: none;
   display: block;
-  filter: brightness(0) saturate(100%) invert(14%) sepia(95%) saturate(6470%) hue-rotate(351deg) brightness(88%) contrast(118%) drop-shadow(0 2px 8px rgba(5, 12, 24, 0.45));
+  filter: brightness(0) saturate(100%) invert(14%) sepia(95%) saturate(6470%) hue-rotate(351deg) brightness(88%) contrast(118%) drop-shadow(0 2px 8px rgba(5, 12, 24, 0.45)) drop-shadow(0 0 0px rgba(0, 0, 0, 0));
+  animation: logo-glitch 7s linear infinite;
+  transition: filter 0.45s ease;
+}
+
+.brand:hover .brand-logo {
+  animation: none;
+  filter: brightness(0) saturate(100%) invert(14%) sepia(95%) saturate(6470%) hue-rotate(351deg) brightness(88%) contrast(118%) drop-shadow(0 2px 8px rgba(5, 12, 24, 0.45)) drop-shadow(0 0 36px rgba(100, 200, 255, 0.95));
 }
 
 .logo-showcase {
@@ -762,7 +810,7 @@ h1 {
 }
 
 .email-display a {
-  color: var(--brand-dark);
+  color: #d4b896;
   font-weight: 600;
   text-decoration: none;
 }
@@ -826,10 +874,70 @@ h1 {
 .site-footer-name {
   color: #f0dfa0;
   font-weight: 600;
-  font-style: italic;
+  font-style: normal;
   font-size: 1.05rem;
   letter-spacing: 0.3px;
   margin: 0;
+}
+
+.footer-name-glitch {
+  display: inline-block;
+  color: #f0dfa0;
+  font-style: italic;
+  animation: text-glitch 7s linear infinite;
+  transition: text-shadow 0.45s ease, color 0.45s ease;
+  cursor: default;
+}
+
+.footer-name-glitch:hover {
+  animation: none;
+  color: #a8d8ff;
+  text-shadow: 0 0 14px rgba(100, 200, 255, 0.95), 0 0 32px rgba(80, 180, 255, 0.65);
+}
+
+@keyframes text-glitch {
+  0%, 86%, 93%, 100% {
+    text-shadow: none;
+    transform: translate(0, 0) skewX(0deg);
+    opacity: 1;
+    color: #f0dfa0;
+  }
+  87% {
+    text-shadow: -6px 0 rgba(0, 255, 80, 0.9), 4px 0 rgba(57, 255, 20, 0.7);
+    transform: translate(-5px, 1px) skewX(-8deg);
+    opacity: 0.65;
+    color: #a0ffb8;
+  }
+  88% {
+    text-shadow: 6px 0 rgba(0, 255, 100, 1), -5px 0 rgba(0, 200, 60, 0.85);
+    transform: translate(5px, -1px) skewX(6deg);
+    opacity: 0.85;
+    color: #80ff90;
+  }
+  89% {
+    text-shadow: none;
+    transform: translate(0, 0) skewX(0deg);
+    opacity: 0.2;
+    color: #f0dfa0;
+  }
+  90% {
+    text-shadow: -4px 0 rgba(57, 255, 20, 0.9), 3px 0 rgba(0, 255, 80, 0.8);
+    transform: translate(-3px, 1px) skewX(-5deg);
+    opacity: 0.9;
+    color: #a0ffb8;
+  }
+  91% {
+    text-shadow: 4px 0 rgba(0, 255, 70, 0.95);
+    transform: translate(3px, -1px) skewX(4deg);
+    opacity: 0.75;
+    color: #80ff90;
+  }
+  92% {
+    text-shadow: 0 0 6px rgba(0, 200, 60, 0.4);
+    transform: translate(-1px, 0) skewX(-2deg);
+    opacity: 0.95;
+    color: #f0dfa0;
+  }
 }
 
 .status-page {
@@ -1034,6 +1142,44 @@ body.holiday-halloween {
   }
 }
 
+@keyframes logo-glitch {
+  0%, 86%, 93%, 100% {
+    filter: brightness(0) saturate(100%) invert(14%) sepia(95%) saturate(6470%) hue-rotate(351deg) brightness(88%) contrast(118%) drop-shadow(0 2px 8px rgba(5, 12, 24, 0.45)) drop-shadow(0 0 0px rgba(0, 0, 0, 0));
+    transform: translate(0, 0) skewX(0deg);
+    opacity: 1;
+  }
+  87% {
+    filter: brightness(0) saturate(100%) invert(14%) sepia(95%) saturate(6470%) hue-rotate(351deg) brightness(88%) contrast(118%) drop-shadow(-6px 0 14px rgba(0, 255, 80, 0.95)) drop-shadow(4px 0 8px rgba(57, 255, 20, 0.7));
+    transform: translate(-6px, 2px) skewX(-8deg);
+    opacity: 0.65;
+  }
+  88% {
+    filter: brightness(0) saturate(100%) invert(14%) sepia(95%) saturate(6470%) hue-rotate(351deg) brightness(88%) contrast(118%) drop-shadow(6px 0 20px rgba(0, 255, 100, 1)) drop-shadow(-5px 0 12px rgba(0, 200, 60, 0.85));
+    transform: translate(6px, -2px) skewX(6deg);
+    opacity: 0.85;
+  }
+  89% {
+    filter: brightness(0) saturate(100%) invert(14%) sepia(95%) saturate(6470%) hue-rotate(351deg) brightness(88%) contrast(118%) drop-shadow(0 0 0px rgba(0, 0, 0, 0)) drop-shadow(0 0 0px rgba(0, 0, 0, 0));
+    transform: translate(0, 0) skewX(0deg);
+    opacity: 0.28;
+  }
+  90% {
+    filter: brightness(0) saturate(100%) invert(14%) sepia(95%) saturate(6470%) hue-rotate(351deg) brightness(88%) contrast(118%) drop-shadow(-4px 0 10px rgba(57, 255, 20, 0.9)) drop-shadow(3px 0 16px rgba(0, 255, 80, 0.8));
+    transform: translate(-4px, 1px) skewX(-5deg);
+    opacity: 0.9;
+  }
+  91% {
+    filter: brightness(0) saturate(100%) invert(14%) sepia(95%) saturate(6470%) hue-rotate(351deg) brightness(88%) contrast(118%) drop-shadow(4px 0 18px rgba(0, 255, 70, 0.95)) drop-shadow(0 0 8px rgba(57, 255, 20, 0.6));
+    transform: translate(4px, -1px) skewX(4deg);
+    opacity: 0.75;
+  }
+  92% {
+    filter: brightness(0) saturate(100%) invert(14%) sepia(95%) saturate(6470%) hue-rotate(351deg) brightness(88%) contrast(118%) drop-shadow(0 0 6px rgba(0, 200, 60, 0.4)) drop-shadow(0 2px 8px rgba(5, 12, 24, 0.45));
+    transform: translate(-2px, 0) skewX(-2deg);
+    opacity: 0.95;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   body::before,
   body::after {
@@ -1197,7 +1343,29 @@ body.holiday-halloween {
   }
 
   .service-highlights {
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    gap: 0.5rem;
+    grid-template-columns: unset;
+  }
+
+  .service-item {
+    padding: 0.55rem 0.7rem;
+    border-radius: 999px;
+    flex: 0 0 auto;
+    min-width: unset;
+  }
+
+  .service-item h3,
+  .service-item p {
+    display: none;
+  }
+
+  .service-icon {
+    font-size: 1.6rem;
+    margin-bottom: 0;
   }
 
   .trust-signals {
