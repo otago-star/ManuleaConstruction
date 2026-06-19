@@ -232,6 +232,25 @@ body > * {
   margin: 0.6rem 0 0;
 }
 
+.service-highlights .service-item:nth-child(1),
+.service-highlights .service-item:nth-child(2),
+.service-highlights .service-item:nth-child(3),
+.service-highlights .service-item:nth-child(4) {
+  background: linear-gradient(145deg, rgba(176, 28, 44, 0.95) 0%, rgba(132, 18, 30, 0.98) 100%);
+  border-color: rgba(255, 164, 178, 0.5);
+}
+
+.service-highlights .service-item:nth-child(1) h3,
+.service-highlights .service-item:nth-child(2) h3,
+.service-highlights .service-item:nth-child(3) h3,
+.service-highlights .service-item:nth-child(4) h3,
+.service-highlights .service-item:nth-child(1) p,
+.service-highlights .service-item:nth-child(2) p,
+.service-highlights .service-item:nth-child(3) p,
+.service-highlights .service-item:nth-child(4) p {
+  color: #fff4f5;
+}
+
 .trust-signals {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
