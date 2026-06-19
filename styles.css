@@ -41,7 +41,7 @@ body {
   position: relative;
   overflow-x: hidden;
   padding-top: 190px;
-  padding-bottom: 104px;
+  padding-bottom: 2rem;
   transition: background 0.6s ease, color 0.4s ease;
 }
 
@@ -803,38 +803,16 @@ h1 {
 }
 
 .site-footer {
-  position: fixed;
-  left: 0;
-  right: 0;
-  bottom: 0;
   border-top: 1px solid var(--line);
-  background: rgba(20, 14, 18, 0.9);
-  backdrop-filter: blur(8px);
-  padding: 0.55rem 0 0.65rem;
-  font-size: 0.86rem;
+  background: rgba(20, 14, 18, 0.95);
+  padding: 2rem 0 2.4rem;
   text-align: center;
-  z-index: 120;
+  font-size: 0.86rem;
+  margin-top: 3rem;
 }
 
-@media (max-width: 640px) {
-  .site-footer {
-    padding: 0.3rem 0 0.4rem;
-    font-size: 0.65rem;
-  }
-
-  .theme-badge {
-    padding: 0.14rem 0.38rem;
-    font-size: 0.6rem;
-  }
-
-  .site-footer-name {
-    font-size: 0.65rem;
-  }
-
-  .site-footer .container {
-    gap: 0.14rem;
-  }
-}
+.theme-badge {
+  display: inline-block;
   border-radius: 999px;
   border: 1px solid rgba(230, 178, 186, 0.42);
   background: rgba(62, 34, 42, 0.72);
@@ -842,11 +820,16 @@ h1 {
   font-size: 0.8rem;
   font-weight: 700;
   letter-spacing: 0.2px;
+  padding: 0.22rem 0.6rem;
 }
 
 .site-footer-name {
-  color: #f5dce1;
+  color: #f0dfa0;
   font-weight: 600;
+  font-style: italic;
+  font-size: 1.05rem;
+  letter-spacing: 0.3px;
+  margin: 0;
 }
 
 .status-page {
@@ -1228,25 +1211,6 @@ body.holiday-halloween {
 
   body {
     padding-top: 182px;
-    padding-bottom: 92px;
-  }
-
-  .site-footer {
-    padding: 0.28rem 0 0.36rem;
-    font-size: 0.64rem;
-  }
-
-  .theme-badge {
-    padding: 0.13rem 0.36rem;
-    font-size: 0.59rem;
-    letter-spacing: 0;
-  }
-
-  .site-footer-name {
-    font-size: 0.64rem;
-  }
-
-  .site-footer .container {
-    gap: 0.12rem;
+    padding-bottom: 1rem;
   }
 }
