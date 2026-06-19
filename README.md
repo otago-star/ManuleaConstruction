@@ -50,3 +50,23 @@ This project is configured to run locally over HTTPS using Vite.
 	- `https://localhost:5173/`
 
 Vite uses `@vitejs/plugin-basic-ssl` to generate a local development certificate automatically.
+
+## GitHub Pages HTTPS Check
+
+To verify your custom domain DNS is ready for the GitHub Pages **Enforce HTTPS** checkbox:
+
+1. Open PowerShell in the project root.
+2. Run:
+	- `./scripts/check-github-pages-dns.ps1`
+
+Optional parameters:
+
+- `-Domain "manuleaconstruction.co.nz"`
+- `-ExpectedWwwCname "otago-star.github.io"`
+
+The script checks:
+
+- Apex A records
+- Apex AAAA records
+- `www` CNAME target
+- Root `CNAME` file value
