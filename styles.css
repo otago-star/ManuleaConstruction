@@ -263,6 +263,20 @@ body > * {
   width: 92vw;
 }
 
+.faq {
+  padding: 0.5rem 0 2.8rem;
+}
+
+.faq h2 {
+  text-align: center;
+}
+
+.faq-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
 .trust-item {
   text-align: center;
   padding: 1.5rem;
@@ -1071,6 +1085,10 @@ body.holiday-halloween {
 
   .project-grid {
     grid-template-columns: 1fr 1fr;
+  }
+
+  .faq-grid {
+    grid-template-columns: 1fr;
   }
 
   .status-grid {

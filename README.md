@@ -57,7 +57,7 @@ To verify your custom domain DNS is ready for the GitHub Pages **Enforce HTTPS**
 
 1. Open PowerShell in the project root.
 2. Run:
-	- `./scripts/check-github-pages-dns.ps1`
+	- `powershell.exe -ExecutionPolicy Bypass -File .\scripts\check-github-pages-dns.ps1`
 
 Optional parameters:
 
@@ -83,3 +83,19 @@ Optional parameters:
 - `-MaxChecks 120`
 
 The watcher repeats the DNS and certificate check until it passes or times out.
+
+## Google Ranking Check Script
+
+Use this script to check your Google ranking position for a target keyword.
+
+1. Create a SerpApi key: `https://serpapi.com/`
+2. Set your API key in PowerShell:
+	- `$env:SERPAPI_API_KEY = "your_api_key_here"`
+3. Run the script:
+	- `powershell.exe -ExecutionPolicy Bypass -File .\scripts\check-google-rank.ps1 -Keyword "renovations dunedin" -Domain "manuleaconstruction.co.nz"`
+
+Optional parameters:
+
+- `-Gl "nz"` (country code)
+- `-Hl "en"` (language code)
+- `-MaxResults 100` (search depth)
