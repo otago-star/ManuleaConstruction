@@ -323,20 +323,58 @@ body > * {
 }
 
 .review-item {
-  background: linear-gradient(145deg, rgba(176, 28, 44, 0.95) 0%, rgba(132, 18, 30, 0.98) 100%);
-  border: 2px solid rgba(255, 164, 178, 0.58);
+  background: linear-gradient(160deg, #101612 0%, #0c1009 60%, #130f07 100%);
+  border: 1.5px solid rgba(0, 220, 80, 0.18);
   border-radius: 16px;
   padding: 1.8rem;
-  box-shadow: var(--shadow);
+  box-shadow: 0 18px 40px rgba(0,0,0,0.72), 0 0 28px rgba(0,180,60,0.07);
+  position: relative;
+  overflow: hidden;
+}
+
+.review-item::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(0, 255, 80, 0.022) 0px,
+    rgba(0, 255, 80, 0.022) 1px,
+    transparent 1px,
+    transparent 5px
+  );
+  animation: review-scan 4s linear infinite;
+}
+
+.review-item::after {
+  content: "";
+  position: absolute;
+  bottom: -30%;
+  left: 5%;
+  width: 90%;
+  height: 70%;
+  pointer-events: none;
+  z-index: 0;
+  background:
+    radial-gradient(ellipse at 35% 100%, rgba(255, 110, 10, 0.13) 0%, transparent 55%),
+    radial-gradient(ellipse at 72% 90%, rgba(255, 72, 0, 0.08) 0%, transparent 45%);
+  animation: goo-rise 7s ease-in-out infinite alternate;
+}
+
+.review-item > * {
+  position: relative;
+  z-index: 1;
 }
 
 .review-item .review-quote,
 .review-item .review-quote cite {
-  color: #ffccd6;
+  color: #b4e6ac;
 }
 
 .reviews h2 {
-  color: #ff6b80;
+  color: #3ddd78;
 }
 
 .review-rating {
@@ -775,11 +813,13 @@ h1 {
   margin: 0 auto;
   padding: 1.3rem;
   border-radius: 16px;
-  border: 1px solid var(--line);
-  background: linear-gradient(145deg, #fff8f8 0%, #f8e6e6 100%);
-  box-shadow: var(--shadow);
+  border: 1px solid rgba(0, 200, 80, 0.14);
+  background: linear-gradient(160deg, #0d1510 0%, #0b1309 50%, #13100a 100%);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.5), inset 0 -8px 36px rgba(255, 105, 0, 0.055);
   font-size: 1.05rem;
   line-height: 1.7;
+  position: relative;
+  overflow: hidden;
 }
 
 .review-quote cite {
@@ -787,7 +827,17 @@ h1 {
   margin-top: 0.9rem;
   font-style: normal;
   font-weight: 700;
-  color: var(--brand-dark);
+  color: #50ef8a;
+}
+
+@keyframes review-scan {
+  0%   { transform: translateY(0); }
+  100% { transform: translateY(5px); }
+}
+
+@keyframes goo-rise {
+  0%   { transform: translateY(0) scale(1);    opacity: 0.45; }
+  100% { transform: translateY(-38%) scale(1.1); opacity: 1; }
 }
 
 .contact {
