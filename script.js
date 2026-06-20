@@ -149,6 +149,17 @@ if (form) {
   });
 }
 
+document.querySelectorAll(".review-toggle").forEach((btn) => {
+  btn.addEventListener("click", () => {
+    const target = document.getElementById(btn.getAttribute("aria-controls"));
+    if (!target) return;
+    const isOpen = !target.hidden;
+    target.hidden = isOpen;
+    btn.setAttribute("aria-expanded", String(!isOpen));
+    btn.textContent = isOpen ? "Read Review" : "Close Review";
+  });
+});
+
 const loadMoreButton = document.getElementById("load-more-galleries");
 
 if (loadMoreButton) {
