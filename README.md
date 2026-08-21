@@ -100,3 +100,14 @@ Optional parameters:
 - `-Gl "nz"` (country code)
 - `-Hl "en"` (language code)
 - `-MaxResults 100` (search depth)
+
+## Google Search Console
+
+Google decides ranking and indexing automatically; no page can guarantee a first-page result. To help Google discover the homepage:
+
+1. Open [Google Search Console](https://search.google.com/search-console/) and add `https://www.manuleaconstruction.co.nz/` as a property.
+2. Verify ownership using the DNS or HTML-file method.
+3. Open **Sitemaps**, submit `sitemap.xml`, and confirm it is processed successfully.
+4. Use **URL inspection** for `https://www.manuleaconstruction.co.nz/`, then choose **Request indexing** after each published SEO change.
+
+The homepage is configured with a canonical URL, `index, follow` robots directive, Dunedin service-area content, and LocalBusiness structured data. Search Console is still required to request crawling and monitor actual queries and position.
