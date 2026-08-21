@@ -17,11 +17,6 @@ function enforceCanonicalHost() {
 
 enforceCanonicalHost();
 
-function getHemisphereFromTimezone(timezone) {
-  const southernHints = ["Pacific/Auckland", "Pacific/Chatham", "Australia/", "Antarctica/"];
-  return southernHints.some((hint) => timezone.startsWith(hint)) ? "southern" : "northern";
-}
-
 function getSeason(month, hemisphere) {
   const seasonMapNorth = {
     11: "winter", 0: "winter", 1: "winter",
@@ -73,15 +68,18 @@ function applyDynamicTheme() {
     return;
   }
 
-  const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone || "UTC";
   const now = new Date();
-  const month = now.getMonth();
-  const day = now.getDate();
+  const nzParts = new Intl.DateTimeFormat("en-NZ", {
+    timeZone: "Pacific/Auckland",
+    month: "numeric",
+    day: "numeric"
+  }).formatToParts(now);
+  const nzMonth = Number(nzParts.find((part) => part.type === "month").value) - 1;
+  const nzDay = Number(nzParts.find((part) => part.type === "day").value);
   const hour = now.getHours();
 
-  const hemisphere = getHemisphereFromTimezone(timezone);
-  const season = getSeason(month, hemisphere);
-  const holiday = getHoliday(month, day);
+  const season = getSeason(nzMonth, "southern");
+  const holiday = getHoliday(nzMonth, nzDay);
   const timeBand = getTimeBand(hour);
 
   document.body.classList.remove(
@@ -104,7 +102,7 @@ function applyDynamicTheme() {
     document.body.classList.add(`holiday-${holiday}`);
   }
 
-  document.body.dataset.timezone = timezone;
+  document.body.dataset.timezone = "Pacific/Auckland";
   document.body.dataset.season = season;
   document.body.dataset.timeBand = timeBand;
   document.body.dataset.holiday = holiday || "none";
