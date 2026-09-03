@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" role="img" aria-labelledby="title">
+  <title>Winter background</title>
+  <rect width="1200" height="800" fill="#121b26"/>
+  <circle cx="970" cy="140" r="220" fill="#48617b" opacity=".52"/>
+  <circle cx="170" cy="700" r="320" fill="#28384a" opacity=".62"/>
+  <path d="M0 580 Q220 480 430 590 T830 560 T1200 500 V800 H0Z" fill="#1e2c38" opacity=".92"/>
+  <g fill="none" stroke="#9fb8c8" stroke-width="6" opacity=".38"><path d="M140 710L240 260M210 500L100 380M205 470L345 330M910 730L850 340M870 520L760 420M875 490L980 390"/></g>
+  <g fill="#d9e6eb" opacity=".38"><circle cx="100" cy="380" r="9"/><circle cx="345" cy="330" r="8"/><circle cx="760" cy="420" r="9"/><circle cx="980" cy="390" r="8"/><circle cx="540" cy="180" r="5"/><circle cx="620" cy="300" r="7"/></g>
+  <path d="M0 220 Q250 140 500 220 T1200 170" fill="none" stroke="#d5e4ef" stroke-width="3" opacity=".16"/>
+</svg>

@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" role="img" aria-labelledby="title">
+  <title>Summer background</title>
+  <rect width="1200" height="800" fill="#30231f"/>
+  <circle cx="930" cy="150" r="170" fill="#d28b55" opacity=".58"/>
+  <circle cx="930" cy="150" r="115" fill="#f0bd70" opacity=".42"/>
+  <path d="M0 570 Q180 500 350 575 T700 555 T1200 500 V800 H0Z" fill="#3c4b35" opacity=".8"/>
+  <path d="M0 680 Q240 580 480 680 T960 650 T1200 620 V800 H0Z" fill="#26352e" opacity=".9"/>
+  <g fill="none" stroke="#d9ae70" stroke-width="7" opacity=".32"><path d="M120 700L155 380M230 710L260 420M1040 680L1000 360"/></g>
+  <g fill="#b8784f" opacity=".5"><path d="M155 420l-65-70 88 36zM155 455l75-65-36 88zM260 460l-70-55 88 28zM1000 400l-75-56 92 30z"/></g>
+  <path d="M0 260 Q260 180 520 250 T1200 200" fill="none" stroke="#f5d7a0" stroke-width="3" opacity=".18"/>
+</svg>

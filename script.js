@@ -124,39 +124,44 @@ if (yearEl) {
 }
 
 if (form) {
-  form.addEventListener("submit", (event) => {
+  const formStatus = document.getElementById("form-status");
+  const submitButton = form.querySelector('button[type="submit"]');
+
+  form.addEventListener("submit", async (event) => {
     event.preventDefault();
 
-    const name = document.getElementById("name")?.value.trim() || "";
-    const phone = document.getElementById("phone")?.value.trim() || "";
-    const address = document.getElementById("address")?.value.trim() || "";
-    const details = document.getElementById("details")?.value.trim() || "";
+    if (formStatus) {
+      formStatus.textContent = "Sending your inquiry...";
+      formStatus.className = "form-status is-sending";
+    }
+    if (submitButton) submitButton.disabled = true;
 
-    const subject = encodeURIComponent("Renovation / Repair Project Inquiry");
-    const body = encodeURIComponent(
-      `Hello Manulea Construction,\n\n` +
-      `I would like to discuss renovation/repair services.\n\n` +
-      `Name: ${name}\n` +
-      `Phone: ${phone}\n` +
-      `Property Address: ${address}\n\n` +
-      `Project Details:\n${details}\n\n` +
-      `Please contact me when available.`
-    );
+    try {
+      const response = await fetch(form.action, {
+        method: "POST",
+        body: new FormData(form),
+        headers: { Accept: "application/json" }
+      });
 
-    window.location.href = `mailto:manuleacon@gmail.com?subject=${subject}&body=${body}`;
+      if (!response.ok) {
+        throw new Error("Form submission failed");
+      }
+
+      form.reset();
+      if (formStatus) {
+        formStatus.textContent = "Thanks, your inquiry has been sent. We will be in touch soon.";
+        formStatus.className = "form-status is-success";
+      }
+    } catch (error) {
+      if (formStatus) {
+        formStatus.textContent = "We could not send your inquiry. Please email manuleacon@gmail.com directly.";
+        formStatus.className = "form-status is-error";
+      }
+    } finally {
+      if (submitButton) submitButton.disabled = false;
+    }
   });
 }
-
-document.querySelectorAll(".review-toggle").forEach((btn) => {
-  btn.addEventListener("click", () => {
-    const target = document.getElementById(btn.getAttribute("aria-controls"));
-    if (!target) return;
-    const isOpen = !target.hidden;
-    target.hidden = isOpen;
-    btn.setAttribute("aria-expanded", String(!isOpen));
-    btn.textContent = isOpen ? "Read Review" : "Close Review";
-  });
-});
 
 const loadMoreButton = document.getElementById("load-more-galleries");
 
@@ -176,7 +181,7 @@ if (loadMoreButton) {
     nextIndex += 1;
 
     if (nextIndex === 1) {
-      loadMoreButton.textContent = "Load More Images";
+      loadMoreButton.textContent = "Load More Gallery Images";
     }
 
     if (nextIndex >= hiddenAlbums.length) {

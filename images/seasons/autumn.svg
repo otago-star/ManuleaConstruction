@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" role="img" aria-labelledby="title">
+  <title>Autumn background</title>
+  <rect width="1200" height="800" fill="#291c1c"/>
+  <circle cx="180" cy="170" r="250" fill="#8a4b35" opacity=".5"/>
+  <circle cx="1020" cy="610" r="300" fill="#754536" opacity=".55"/>
+  <path d="M0 640 Q220 500 420 620 T820 600 T1200 540 V800 H0Z" fill="#453128" opacity=".9"/>
+  <g fill="none" stroke="#b9784a" stroke-width="8" opacity=".4"><path d="M170 690C160 520 205 350 300 170M240 520C150 470 100 385 90 290M220 460C320 410 350 320 360 230"/></g>
+  <g fill="#c07843" opacity=".58"><ellipse cx="86" cy="284" rx="24" ry="13" transform="rotate(30 86 284)"/><ellipse cx="354" cy="230" rx="24" ry="13" transform="rotate(-25 354 230)"/><ellipse cx="120" cy="420" rx="21" ry="12" transform="rotate(-35 120 420)"/><ellipse cx="310" cy="385" rx="20" ry="12" transform="rotate(42 310 385)"/></g>
+  <path d="M700 180h350M760 210h280M820 240h210" stroke="#edc08a" stroke-width="3" opacity=".15"/>
+</svg>

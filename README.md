@@ -19,24 +19,27 @@ This project is a static multi-page website focused on:
 ## Project Structure
 
 - `styles.css` - Main site styling and responsive layout
-- `script.js` - Form mailto behavior and gallery load interactions
+- `script.js` - Formspree submission and gallery load interactions
 - `images/logo/` - Logo assets
 - `images/border/` - Side border graphics
 - `images/projects/` - Project gallery images by folder (`project1`, `project2`, etc.)
+- `images/seasons/` - Seasonal background artwork for spring, summer, autumn, and winter
 
 ## Gallery Behavior
 
 On the home page:
 
-1. Before/After Galleries 1-3 are shown immediately.
-2. Project galleries are hidden by default.
-3. Clicking **Load Gallery Images** reveals Project 1 first.
+1. Before/After Galleries 1-3 and Project 1 are shown immediately.
+2. Project 1 images load eagerly on the initial page load.
+3. Clicking **Load Gallery Images** reveals Project 2 first.
 4. Each next click reveals the next project gallery.
+5. The page automatically applies spring and autumn themes for the southern hemisphere seasons in Dunedin.
 
 ## Contact
 
 - Email: `manuleacon@gmail.com`
 - Address: `104 Glen Road, The Glen, Dunedin 9011`
+- Quote inquiries are submitted through Formspree and forwarded to the business email.
 
 ## Local Preview
 

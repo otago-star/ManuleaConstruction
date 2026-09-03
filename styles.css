@@ -13,10 +13,9 @@
   --surface-soft: rgba(42, 30, 37, 0.72);
   --bg-highlight-1: #39232d;
   --bg-highlight-2: #322031;
-  --grid-line-1: rgba(224, 105, 105, 0.28);
-  --grid-line-2: rgba(150, 52, 95, 0.2);
   --page-dim-opacity: 0.38;
   --season-tint: rgba(116, 39, 56, 0.16);
+  --season-backdrop: url("images/seasons/winter.svg");
   --image-base-filter: brightness(0.76) saturate(0.92) contrast(1.06);
   --image-hover-filter: brightness(0.9) saturate(1.02) contrast(1.08);
 }
@@ -34,41 +33,19 @@ body {
 body {
   font-family: "Manrope", "Segoe UI", sans-serif;
   background:
-    radial-gradient(140% 100% at 20% 10%, var(--bg-highlight-1) 0%, transparent 45%),
-    radial-gradient(120% 90% at 82% 85%, var(--bg-highlight-2) 0%, transparent 48%),
-    linear-gradient(180deg, #130f14 0%, var(--bg) 45%, #130f14 100%);
+    radial-gradient(80% 65% at 8% 0%, var(--bg-highlight-1) 0%, transparent 62%),
+    radial-gradient(70% 55% at 96% 100%, var(--bg-highlight-2) 0%, transparent 60%),
+    linear-gradient(135deg, rgba(18, 15, 19, 0.82) 0%, rgba(26, 20, 24, 0.76) 48%, rgba(33, 22, 29, 0.82) 100%),
+    var(--season-backdrop);
+  background-size: auto, auto, auto, cover;
+  background-position: center, center, center, center;
+  background-attachment: scroll, scroll, scroll, fixed;
   color: var(--ink);
   position: relative;
   overflow-x: hidden;
   padding-top: 190px;
   padding-bottom: 2rem;
   transition: background 0.6s ease, color 0.4s ease;
-}
-
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  z-index: 1;
-  pointer-events: none;
-  opacity: 0.78;
-  background-image:
-    repeating-linear-gradient(
-      0deg,
-      var(--grid-line-1) 0,
-      var(--grid-line-1) 2px,
-      transparent 2px,
-      transparent 56px
-    ),
-    repeating-linear-gradient(
-      90deg,
-      var(--grid-line-2) 0,
-      var(--grid-line-2) 2px,
-      transparent 2px,
-      transparent 56px
-    );
-  mix-blend-mode: screen;
-  animation: grid-drift 6s linear infinite;
 }
 
 body::after {
@@ -98,7 +75,6 @@ body > * {
 .bg-shape-1 {
   width: 380px;
   height: 380px;
-  border-radius: 50%;
   background: radial-gradient(circle, #f2a0a0 0%, #f8d9d9 52%, transparent 74%);
   top: -85px;
   right: -75px;
@@ -107,7 +83,6 @@ body > * {
 .bg-shape-2 {
   width: 400px;
   height: 400px;
-  border-radius: 50%;
   background: radial-gradient(circle, #e98f8f 0%, #f5d2d2 50%, transparent 76%);
   bottom: -120px;
   left: -100px;
@@ -116,9 +91,11 @@ body > * {
 .side-border {
   position: fixed;
   top: 0;
+  bottom: 0;
   width: 56px;
   height: 100vh;
   object-fit: cover;
+  object-position: center;
   pointer-events: none;
   z-index: 3;
   opacity: 0.9;
@@ -185,7 +162,7 @@ body > * {
 }
 
 .services-highlight h2 {
-  font-family: "Orbitron", sans-serif;
+  font-family: "Space Grotesk", "Manrope", sans-serif;
   text-align: center;
   font-size: clamp(1.65rem, 3vw, 2.7rem);
   margin-bottom: 0.75rem;
@@ -515,7 +492,7 @@ a:hover {
 }
 
 .logo-showcase h2 {
-  font-family: "Orbitron", sans-serif;
+  font-family: "Space Grotesk", "Manrope", sans-serif;
   letter-spacing: 0.8px;
   font-size: clamp(1.65rem, 3vw, 2.7rem);
   margin-bottom: 0.45rem;
@@ -589,11 +566,11 @@ a:hover {
 h1,
 h2,
 h3 {
-  line-height: 1.06;
+  font-family: "Space Grotesk", "Manrope", sans-serif;
 }
 
 h1 {
-  font-family: "Orbitron", sans-serif;
+  font-family: "Space Grotesk", "Manrope", sans-serif;
   font-size: clamp(2rem, 6vw, 4rem);
   margin: 0.7rem auto 0.9rem;
   max-width: 18ch;
@@ -649,13 +626,18 @@ h1 {
   padding: 0.5rem 0 2.6rem;
 }
 
+.about,
+.process {
+  padding-top: 3rem;
+}
+
 .services h2,
 .about h2,
 .process h2,
 .reviews h2,
 .projects h2,
 .contact h2 {
-  font-family: "Orbitron", sans-serif;
+  font-family: "Space Grotesk", "Manrope", sans-serif;
   letter-spacing: 0.8px;
   font-size: clamp(1.65rem, 3vw, 2.7rem);
   margin-bottom: 1rem;
@@ -712,7 +694,7 @@ h1 {
 }
 
 .before-after h2 {
-  font-family: "Orbitron", sans-serif;
+  font-family: "Space Grotesk", "Manrope", sans-serif;
   text-align: center;
   margin-bottom: 1rem;
 }
@@ -734,7 +716,7 @@ h1 {
 .before-after-card h3 {
   text-align: center;
   margin: 0 0 0.6rem;
-  font-family: "Orbitron", sans-serif;
+  font-family: "Space Grotesk", "Manrope", sans-serif;
 }
 
 .before-after-pair {
@@ -777,7 +759,7 @@ h1 {
 .project-album h3 {
   text-align: center;
   margin: 0.25rem 0 0.8rem;
-  font-family: "Orbitron", sans-serif;
+  font-family: "Space Grotesk", "Manrope", sans-serif;
 }
 
 .load-more-wrap {
@@ -806,13 +788,6 @@ h1 {
   max-width: 900px;
   margin: 0 auto;
   text-align: center;
-}
-
-.review-toggle {
-  display: block;
-  margin: 0 0 1rem;
-  font-size: 0.9rem;
-  padding: 0.5rem 1.1rem;
 }
 
 .review-quote {
@@ -913,6 +888,31 @@ h1 {
   width: 100%;
 }
 
+.form-status {
+  min-height: 1.5em;
+  margin: 0.8rem 0 0;
+  font-size: 0.9rem;
+  line-height: 1.45;
+  text-align: center;
+}
+
+.form-status.is-sending {
+  color: var(--accent);
+}
+
+.form-status.is-success {
+  color: #9ce6b0;
+}
+
+.form-status.is-error {
+  color: #ffaaa5;
+}
+
+.contact-form button:disabled {
+  cursor: wait;
+  opacity: 0.7;
+}
+
 .site-footer {
   border-top: 1px solid var(--line);
   background: rgba(20, 14, 18, 0.95);
@@ -932,6 +932,19 @@ h1 {
   font-weight: 700;
   letter-spacing: 0.2px;
   padding: 0.22rem 0.6rem;
+}
+
+.external-links {
+  display: flex;
+  justify-content: center;
+  gap: 0.9rem;
+  flex-wrap: wrap;
+  margin: 0.8rem 0;
+}
+
+.external-links a {
+  color: #d4b896;
+  font-weight: 700;
 }
 
 .site-footer-name {
@@ -1019,8 +1032,6 @@ body.time-night {
   --bg-highlight-1: #281e2e;
   --bg-highlight-2: #1f2238;
   --season-tint: rgba(52, 88, 156, 0.24);
-  --grid-line-1: rgba(120, 78, 154, 0.26);
-  --grid-line-2: rgba(78, 110, 170, 0.2);
   --image-base-filter: brightness(0.64) saturate(0.88) contrast(1.1);
   --image-hover-filter: brightness(0.78) saturate(0.98) contrast(1.12);
 }
@@ -1028,29 +1039,31 @@ body.time-night {
 body.season-summer {
   --season-tint: rgba(188, 92, 38, 0.18);
   --accent: #ff996f;
+  --season-backdrop: url("images/seasons/summer.svg");
 }
 
 body.season-autumn {
   --season-tint: rgba(172, 78, 28, 0.22);
   --accent: #ff8a55;
+  --season-backdrop: url("images/seasons/autumn.svg");
 }
 
 body.season-winter {
   --season-tint: rgba(74, 105, 164, 0.24);
   --accent: #8bb6ff;
+  --season-backdrop: url("images/seasons/winter.svg");
 }
 
 body.season-spring {
   --season-tint: rgba(146, 71, 129, 0.2);
   --accent: #ff88d7;
+  --season-backdrop: url("images/seasons/spring.svg");
 }
 
 body.holiday-christmas {
   --brand: #cf2d2d;
   --brand-dark: #1e7a3f;
   --season-tint: rgba(40, 140, 88, 0.24);
-  --grid-line-1: rgba(201, 45, 45, 0.3);
-  --grid-line-2: rgba(53, 143, 91, 0.22);
 }
 
 body.holiday-newyear {
@@ -1079,16 +1092,6 @@ body.holiday-halloween {
   to {
     opacity: 1;
     transform: translateY(0);
-  }
-}
-
-@keyframes grid-drift {
-  0% {
-    background-position: 0 0, 0 0;
-  }
-
-  100% {
-    background-position: 56px 56px, -56px -56px;
   }
 }
 
@@ -1154,7 +1157,6 @@ body.holiday-halloween {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  body::before,
   body::after {
     animation: none;
   }
@@ -1271,10 +1273,6 @@ body.holiday-halloween {
   .showcase-logo {
     max-width: 92vw;
     max-height: 44vh;
-  }
-
-  .side-border {
-    display: none;
   }
 
   .nav-wrap {

@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" role="img" aria-labelledby="title">
+  <title>Spring background</title>
+  <rect width="1200" height="800" fill="#18252a"/>
+  <circle cx="160" cy="120" r="230" fill="#416b68" opacity=".55"/>
+  <circle cx="1050" cy="690" r="330" fill="#6d526e" opacity=".45"/>
+  <path d="M0 650 Q220 520 430 650 T860 630 T1200 580 V800 H0Z" fill="#253b38" opacity=".9"/>
+  <g fill="none" stroke="#9dbf9b" stroke-width="5" opacity=".45">
+    <path d="M140 680 C150 510 180 360 260 210"/>
+    <path d="M190 520 C120 470 90 410 75 340"/>
+    <path d="M205 470 C290 420 325 360 338 285"/>
+  </g>
+  <g fill="#d99baa" opacity=".5">
+    <circle cx="72" cy="338" r="18"/><circle cx="112" cy="365" r="13"/><circle cx="337" cy="282" r="17"/><circle cx="298" cy="315" r="12"/>
+  </g>
+  <g fill="none" stroke="#dbe4c3" stroke-width="2" opacity=".2"><path d="M760 120h300M810 150h240M860 180h180"/></g>
+</svg>
