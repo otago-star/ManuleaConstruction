@@ -97,7 +97,7 @@ body > * {
   object-fit: cover;
   object-position: center;
   pointer-events: none;
-  z-index: 3;
+  z-index: 0;
   opacity: 0.9;
   filter: brightness(0) saturate(100%) invert(14%) sepia(95%) saturate(6470%) hue-rotate(351deg) brightness(88%) contrast(118%) drop-shadow(0 0 10px rgba(170, 36, 36, 0.55));
 }
@@ -1197,6 +1197,10 @@ body.holiday-halloween {
     width: 38px;
   }
 
+  .container {
+    padding-inline: 20px;
+  }
+
   .before-after-grid {
     grid-template-columns: 1fr;
   }
@@ -1235,6 +1239,10 @@ body.holiday-halloween {
 }
 
 @media (max-width: 640px) {
+  .container {
+    padding-inline: 32px;
+  }
+
   .nav-links {
     justify-content: center;
     flex-wrap: wrap;
